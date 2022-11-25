@@ -26,8 +26,6 @@ La documentación nos dice que podemos ejecutar `Set-RetentionCompliancePolicy -
 
 *Como de Costumbre, es buena idea copiar y pegar en PowerShell ISE e ir paso a paso (Con F8) para capturar cualquier error*
 ```
-
-
 $LabelsSharePoint = Get-RetentionCompliancePolicy 
 foreach ($label in $LabelsSharePoint) {
     Set-RetentionCompliancePolicy -Identity $label.Name -RetryDistribution
