@@ -1,5 +1,5 @@
 baseurl = "https://jpcortesp.github.io/"
 title = "JPCortesP"
-theme = "beautifulhugo"
+theme = 'ananke'
 languagecode = "en"
 defaultcontentlanguage = "en"
