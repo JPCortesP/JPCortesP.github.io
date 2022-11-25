@@ -26,21 +26,8 @@ La documentación nos dice que podemos ejecutar `Set-RetentionCompliancePolicy -
 
 *Como de Costumbre, es buena idea copiar y pegar en PowerShell ISE e ir paso a paso (Con F8) para capturar cualquier error*
 ```
-# ===== INSTALACIÓN DEL MÓDULO, IGNORAR SI YA ESTÁ INSTALADO ========
-Set-ExecutionPolicy RemoteSigned #Pre-req para instalar el módulo. 
-Install-Module -Name ExchangeOnlineManagement
-# Si no tiene admin local: 
-#Install-Module -Name ExchangeOnlineManagement -Scope CurrentUser
 
-#== FIN DE LA INSTALACIÓN
 
-Import-Module ExchangeOnlineManagement
-Connect-IPPSSession -UserPrincipalName nombre@dominio.net #reemplazar por su nombre@dominio con permisos de Admin global o similar. 
-#Ver https://learn.microsoft.com/en-us/powershell/exchange/connect-to-scc-powershell?view=exchange-ps para tenants fuera de Normal /ej, GCC. 
-
-#Conectados al tenant, listamos las etiquetas de retención:
-Get-RetentionCompliancePolicy | ft
-#si necesitamos solo sincronizar una única política, esto es todo lo que necesitamos :P. Pero si queremos sincronizar todas, ejecutar lo siguiente: 
 $LabelsSharePoint = Get-RetentionCompliancePolicy 
 foreach ($label in $LabelsSharePoint) {
     Set-RetentionCompliancePolicy -Identity $label.Name -RetryDistribution
@@ -48,7 +35,6 @@ foreach ($label in $LabelsSharePoint) {
     Write-host( $label.Name + " se solicitó sincronizar" ) -ForegroundColor Green
 }
 
-
-#Para Desconectar: 
-Disconnect-ExchangeOnline -Confirm:$false
 ```
+
+Para ver el Script completo, **incluyendo la instalaciones y pre-requisitos**, ir a este [link](https://github.com/JPCortesP/JPCortesP.github.io/blob/main/static/scripts/Sync-retention-labels-sharepoint.ps1)
