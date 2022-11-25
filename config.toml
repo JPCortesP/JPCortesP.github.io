@@ -1,0 +1,5 @@
+baseurl = "http://www.example.com"
+title = "JPCortesP"
+theme = "beautifulhugo"
+languagecode = "en"
+defaultcontentlanguage = "en"
