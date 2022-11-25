@@ -1,4 +1,4 @@
-baseurl = "http://www.example.com"
+baseurl = "https://jpcortesp.github.io/"
 title = "JPCortesP"
 theme = "beautifulhugo"
 languagecode = "en"
